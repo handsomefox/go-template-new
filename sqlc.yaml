@@ -18,3 +18,13 @@ sql:
         emit_enum_valid_method: true
         emit_all_enum_values: true
         json_tags_case_style: snake
+overrides:
+  go:
+    overrides:
+      - db_type: "timestamptz"
+        nullable: true
+        engine: "postgresql"
+        go_type:
+          import: "gopkg.in/guregu/null.v4"
+          package: "null"
+          type: "Time"

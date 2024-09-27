@@ -5,17 +5,17 @@
 package sqlc
 
 import (
-	"database/sql"
 	"time"
 
 	"github.com/google/uuid"
+	null "gopkg.in/guregu/null.v4"
 )
 
 type Users struct {
-	ID        uuid.UUID    `db:"id" json:"id"`
-	Name      string       `db:"name" json:"name"`
-	Email     string       `db:"email" json:"email"`
-	CreatedAt time.Time    `db:"created_at" json:"created_at"`
-	UpdatedAt time.Time    `db:"updated_at" json:"updated_at"`
-	DeletedAt sql.NullTime `db:"deleted_at" json:"deleted_at"`
+	ID        uuid.UUID `db:"id" json:"id"`
+	Name      string    `db:"name" json:"name"`
+	Email     string    `db:"email" json:"email"`
+	CreatedAt time.Time `db:"created_at" json:"created_at"`
+	UpdatedAt time.Time `db:"updated_at" json:"updated_at"`
+	DeletedAt null.Time `db:"deleted_at" json:"deleted_at"`
 }
