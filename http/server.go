@@ -6,6 +6,7 @@ import (
 	"log"
 	"log/slog"
 	"net/http"
+	"slices"
 	"time"
 
 	"project-template/config"
@@ -64,5 +65,6 @@ func (s *Server) Mount(fn func(r *chi.Mux)) {
 }
 
 func (s *Server) Use(middlewares ...func(h http.Handler) http.Handler) {
+	slices.Reverse(middlewares)
 	s.mux.Use(middlewares...)
 }
