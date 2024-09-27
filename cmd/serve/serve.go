@@ -54,7 +54,7 @@ func run(ctx context.Context) error {
 		middleware.CleanPath,
 		middleware.RequestID,
 		middleware.RealIP,
-		middleware.AllowContentType("application-json"),
+		middleware.AllowContentType("application/json", "application/json; charset=utf-8"),
 	)
 
 	userService := user.New(db)
